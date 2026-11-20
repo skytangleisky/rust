@@ -4,3 +4,20 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+axum = "0.8.9"
+serde = { version = "1.0.229", features = ["derive"] }
+tokio = { version = "1.54.1", features = ["full"] }
+[profile.release]
+opt-level = "z"
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
+
+
+[[bin]]
+name = "ts"
+path = "src/ts.rs"
+[[bin]]
+name = "tc"
+path = "src/tc.rs"
